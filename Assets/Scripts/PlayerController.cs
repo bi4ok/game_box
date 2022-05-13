@@ -40,7 +40,8 @@ public class PlayerController : MonoBehaviour, IDamageAble, IDamageDealer<GameOb
     private AudioClip blasterSound;
     [SerializeField]
     private AudioSource audioSource;
-
+    [SerializeField]
+    private PlayerSpawner playerSpawner;
     private GameHandler gameHandler;
 
     private float _valuesRegenCooldown = 5f;
@@ -54,8 +55,8 @@ public class PlayerController : MonoBehaviour, IDamageAble, IDamageDealer<GameOb
     private Vector2 _movementAxes;
     private SpriteRenderer _playerSprite;
     private Animator _playerAnimator;
-
-    void Start()
+  
+    void Awake()
     {
         _characterInside = new Character(startHealth, damageValue, energyValue, shieldPower, attackRange, attackSpeed, movementSpeed, tag);
         _playerRigidBody = GetComponent<Rigidbody2D>();
@@ -264,17 +265,21 @@ public class PlayerController : MonoBehaviour, IDamageAble, IDamageDealer<GameOb
     }
 
     public bool DiedByDamage()
-    {
+    { 
         if (_characterInside.DiedByDamage())
-        {
+        {/*
             _playerAnimator.SetTrigger("Death");
             Destroy(gameObject, 5f);
             Time.timeScale = 0;
             gameHandler.EndGame();
             return true;
+            */
+            playerSpawner.StartRespawn();
         }
+        
         return false;
-    }
+        
+        }
 
     public float ShieldThatDamage(float damageAmount)
     {

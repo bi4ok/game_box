@@ -10,18 +10,21 @@ public class PlayerSpawner : MonoBehaviour
     void Start()
     {
         playerController = player.GetComponent<PlayerController>();
+
         print(playerController.CheckStats("health"));
-        
     }
 
     public IEnumerator Respawn()
     {   //Анимация смерти
         player.SetActive(false);
-       
         yield return new WaitForSeconds(respawnKD);
         player.transform.position = transform.position;
+        playerController.TakeHeal(playerController.CheckStats("health"));
         player.SetActive(true);
        
     }
-
+    public void StartRespawn()
+    {
+        StartCoroutine(Respawn());
+    }
 }
