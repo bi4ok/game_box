@@ -6,10 +6,12 @@ public class PlayerSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     [SerializeField] private float respawnKD;
-    private PlayerController character;
+    private PlayerController playerController;
     void Start()
     {
-        character = player.GetComponent<PlayerController>();
+        playerController = player.GetComponent<PlayerController>();
+        print(playerController.CheckStats("health"));
+        
     }
 
     public IEnumerator Respawn()
@@ -19,7 +21,7 @@ public class PlayerSpawner : MonoBehaviour
         yield return new WaitForSeconds(respawnKD);
         player.transform.position = transform.position;
         player.SetActive(true);
-        character.TakeHeal(5);
+       
     }
 
 }

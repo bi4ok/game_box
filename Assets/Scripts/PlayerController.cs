@@ -282,4 +282,8 @@ public class PlayerController : MonoBehaviour, IDamageAble, IDamageDealer<GameOb
         damageAmount = _characterInside.ShieldThatDamage(damageAmount);
         return damageAmount;
     }
+    public float CheckStats(string stat)
+    {
+        return _characterInside.statsOut["health"].Value;
+    }
 }

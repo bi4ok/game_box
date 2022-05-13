@@ -509,6 +509,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 153154225}
+  - component: {fileID: 153154226}
   m_Layer: 0
   m_Name: PlayerSpawner
   m_TagString: Untagged
@@ -530,6 +531,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &153154226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153154224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0956977172e90be4aa29cdba7d76f2d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2113713073}
+  respawnKD: 5
 --- !u!1 &162170183 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 926290504772918149, guid: a127b43e41a542c44a34dcb795ab8e76, type: 3}
@@ -22039,6 +22054,10 @@ PrefabInstance:
     - target: {fileID: 8285571963332703463, guid: 1953dd597fa872d4dba0c5933febc267, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8285571963332703463, guid: 1953dd597fa872d4dba0c5933febc267, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8285571963332704028, guid: 1953dd597fa872d4dba0c5933febc267, type: 3}
       propertyPath: lighter
