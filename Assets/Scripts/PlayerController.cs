@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour, IDamageAble, IDamageDealer<GameObject>
-{
+{ 
     [SerializeField]
     private float startHealth;
     [SerializeField]
