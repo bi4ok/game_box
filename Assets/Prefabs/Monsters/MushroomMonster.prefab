@@ -140,12 +140,13 @@ MonoBehaviour:
   energyValue: 0
   shieldPower: 0
   movementSpeed: 4
-  attackRange: 1
+  attackRange: 5
   attackSpeed: 1
   scoreForKill: 1
   endAfterDie: 0
   targetToAttack: {fileID: 8285571963332703458, guid: 1953dd597fa872d4dba0c5933febc267, type: 3}
   deathEffect: {fileID: 9045377708919106690, guid: 71080688f7115d34684d18a1ce80d95a, type: 3}
+  bulletPrefab: {fileID: 2272264161091747489, guid: 508274a1d8f499d47a4d7a71a6a633b5, type: 3}
   bonusHandler: {fileID: 926290504772918149, guid: a127b43e41a542c44a34dcb795ab8e76, type: 3}
 --- !u!95 &3499114102412056923
 Animator:

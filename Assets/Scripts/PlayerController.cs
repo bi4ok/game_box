@@ -42,12 +42,16 @@ public class PlayerController : MonoBehaviour, IDamageAble, IDamageDealer<GameOb
     private AudioSource audioSource;
     [SerializeField]
     private PlayerSpawner playerSpawner;
+    [SerializeField]
+    private GameObject deathEffect;
+
     private GameHandler gameHandler;
 
     private float _valuesRegenCooldown = 5f;
     private float _valuesRegenTimer = 0f;
     private float _angleOfView;
     private bool _weaponEquipped=true;
+    public bool alive=true;
 
 
     private Character _characterInside;
@@ -251,11 +255,13 @@ public class PlayerController : MonoBehaviour, IDamageAble, IDamageDealer<GameOb
 
     public void TakeDamage(float damageAmount, string damageFrom)
     {
-        _playerAnimator.SetTrigger("Hitted");
-        damageAmount = ShieldThatDamage(damageAmount);
-        _characterInside.TakeDamage(damageAmount, damageFrom);
-        DiedByDamage();
-        
+        if (alive)
+        {
+            _playerAnimator.SetTrigger("Hitted");
+            damageAmount = ShieldThatDamage(damageAmount);
+            _characterInside.TakeDamage(damageAmount, damageFrom);
+            DiedByDamage();
+        }
 
     }
 
@@ -274,6 +280,11 @@ public class PlayerController : MonoBehaviour, IDamageAble, IDamageDealer<GameOb
             gameHandler.EndGame();
             return true;
             */
+            GameObject effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
+            SpriteRenderer effectSprite = effect.GetComponent<SpriteRenderer>();
+            effectSprite.flipX = _playerSprite.flipX;
+            Destroy(effect, 3f);
+            alive = false;
             playerSpawner.StartRespawn();
         }
         

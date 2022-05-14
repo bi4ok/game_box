@@ -20,6 +20,7 @@ public class PlayerSpawner : MonoBehaviour
         yield return new WaitForSeconds(respawnKD);
         player.transform.position = transform.position;
         playerController.TakeHeal(playerController.CheckStats("health"));
+        playerController.alive = true;
         player.SetActive(true);
        
     }

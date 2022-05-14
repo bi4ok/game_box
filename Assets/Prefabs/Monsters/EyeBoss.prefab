@@ -175,5 +175,5 @@ MonoBehaviour:
   endAfterDie: 1
   targetToAttack: {fileID: 0}
   deathEffect: {fileID: 8887629353482201365, guid: 51ab2d01536da6044970efbaab15dad5, type: 3}
+  bulletPrefab: {fileID: 2272264161091747489, guid: 508274a1d8f499d47a4d7a71a6a633b5, type: 3}
   bonusHandler: {fileID: 926290504772918149, guid: a127b43e41a542c44a34dcb795ab8e76, type: 3}
-  gameManager: {fileID: 926290504772918149, guid: a127b43e41a542c44a34dcb795ab8e76, type: 3}

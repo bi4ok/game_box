@@ -7,7 +7,14 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     private GameObject hitEffect;
 
+    private string attackerTag="Player";
     public float damage;
+
+    private void Start()
+    {
+        Destroy(gameObject, 2f);
+        StartCoroutine(BlastEffect(1.9f));
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -21,16 +28,22 @@ public class Bullet : MonoBehaviour
 
     private void ApplyDamage(Collider2D collision)
     {
-        if(!collision.CompareTag("Player") && !collision.CompareTag("Bonus"))
+        if(!collision.CompareTag(attackerTag) && !collision.CompareTag("Bonus") && !collision.CompareTag("Bullet"))
         {
             Debug.Log(collision.name);
             BlastHim(collision);
-            GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
-            Destroy(effect, 1f);
-            Destroy(gameObject);
+            StartCoroutine(BlastEffect(0f));
+            Destroy(gameObject, 0.2f);
 
         }
 
+    }
+
+    private IEnumerator BlastEffect(float sec)
+    {
+        yield return new WaitForSeconds(sec);
+        GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
+        Destroy(effect, 1f);
     }
 
     private void BlastHim(Collider2D collision)
@@ -42,6 +55,11 @@ public class Bullet : MonoBehaviour
         }
         
 
+    }
+
+    public void ChooseAttacker(string tag)
+    {
+        attackerTag = tag;
     }
 
 }

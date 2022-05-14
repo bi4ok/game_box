@@ -27,7 +27,8 @@ public class MonsterController : MonoBehaviour, IDamageAble, IDamageDealer<GameO
     private Rigidbody2D targetToAttack;
     [SerializeField]
     private GameObject deathEffect;
-
+    [SerializeField]
+    private GameObject bulletPrefab;
     [SerializeField]
     private GameObject bonusHandler;
 
@@ -102,9 +103,15 @@ public class MonsterController : MonoBehaviour, IDamageAble, IDamageDealer<GameO
             _monsterAnimator.SetTrigger("Attack");
 
             // »щем цель и наносим урон
-            var targetType = target.GetComponent<IDamageAble>();
-            if (targetType == null) return;
-            targetType.TakeDamage(_monsterInside.statsOut["damage"].Value, tag);
+            if (bulletPrefab)
+            {
+                RangeAttack(target);
+            }
+            else
+            {
+                MeeleeAttack(target);
+            }
+            
             _attackCoolDownTimer = attackSpeed;
         }
         else
@@ -112,6 +119,27 @@ public class MonsterController : MonoBehaviour, IDamageAble, IDamageDealer<GameO
             _attackCoolDownTimer -= Time.fixedDeltaTime;
         }
 
+    }
+
+    private void MeeleeAttack(GameObject target)
+    {
+        var targetType = target.GetComponent<IDamageAble>();
+        if (targetType == null) return;
+        targetType.TakeDamage(_monsterInside.statsOut["damage"].Value, tag);
+    }
+
+    private void RangeAttack(GameObject target)
+    {
+        Vector3 deltaDirection = (target.transform.position - transform.position).normalized;
+        Debug.DrawLine(transform.position + (deltaDirection * 2), target.transform.position);
+        Vector3 pointOfAttack = transform.position + deltaDirection;
+
+        GameObject bullet = Instantiate(bulletPrefab, pointOfAttack, transform.rotation);
+        Rigidbody2D bulletBody = bullet.GetComponent<Rigidbody2D>();
+        Bullet bulletInside = bullet.GetComponent<Bullet>();
+        bulletInside.damage = _monsterInside.statsOut["damage"].Value;
+        bulletInside.ChooseAttacker(tag);
+        bulletBody.AddForce(deltaDirection * _monsterInside.statsOut["attackSpeed"].Value * _monsterInside.statsOut["movementSpeed"].Value, ForceMode2D.Impulse);
     }
 
     public void TakeDamage(float damageAmount, string damageFrom)
