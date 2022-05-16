@@ -19,7 +19,7 @@ public class MarketScript : MonoBehaviour
     public void UpdateInfo()
     {
         nametext.text = Products[i].name;
-        chtext.text = Products[i].health.ToString() + "/n" + Products[i].attack.ToString() + "/n" + Products[i].attackspeed.ToString() + "/n" + Products[i].movespeed.ToString() +"/n" + Products[i].cost.ToString();
+        chtext.text = Products[i].health.ToString() + "\n" + Products[i].attack.ToString() + "\n" + Products[i].attackspeed.ToString() + "\n" + Products[i].movespeed.ToString() +"\n" + Products[i].cost.ToString();
         mainimage.sprite = Products[i].artwork;
         buttontext.text = Products[i].isbought == true ? Products[0].ischoosen == true ? "Choosen": "Choose" : "Buy";
 
