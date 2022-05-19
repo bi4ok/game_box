@@ -20453,6 +20453,8 @@ MonoBehaviour:
   Products:
   - {fileID: 11400000, guid: 9ac5125f823942f4e804a90835b2c4b3, type: 2}
   buttontext: {fileID: 1431886990}
+  slot: {fileID: 2406927231112855141, guid: 2551c5be1996f4e4787993eeee32afc7, type: 3}
+  parentslot: {fileID: 2010932425}
 --- !u!1 &1049857352
 GameObject:
   m_ObjectHideFlags: 0
