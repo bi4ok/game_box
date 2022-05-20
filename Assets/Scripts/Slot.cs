@@ -5,20 +5,14 @@ using UnityEngine.UI;
 
 public class Slot : MonoBehaviour
 {
-    [SerializeField] private MarketScript marketScript;
-    public int i;
     public ProductScript productScript;
-    [SerializeField] private Image slotimage;
-    private void Start()
-    {
-        slotimage.sprite = productScript.artwork;
-        marketScript = FindObjectOfType<MarketScript>();
-    }
+   [SerializeField] private Image slotimage;
 
-    public void Updateinfo()
+   
+    public void OnCreate(ProductScript product)
     {
-        marketScript.UpdateInfo(i);
-        print(i);
+        productScript = product;
+        slotimage.sprite = product.artwork;
     }
 
 }
