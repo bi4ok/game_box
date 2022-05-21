@@ -19898,7 +19898,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1000222216
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19979,6 +19979,7 @@ MonoBehaviour:
   parentslot: {fileID: 2010932425}
   products:
   - {fileID: 11400000, guid: 9ac5125f823942f4e804a90835b2c4b3, type: 2}
+  - {fileID: 11400000, guid: 0a7a7dbd523550b43afdfbe9a0df618c, type: 2}
   marketinfobj: {fileID: 2010932425}
 --- !u!1 &1049857352
 GameObject:
@@ -21015,7 +21016,7 @@ GameObject:
   - component: {fileID: 1431886991}
   - component: {fileID: 1431886990}
   m_Layer: 3
-  m_Name: BuyText
+  m_Name: ButtonBuyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22417,6 +22418,7 @@ MonoBehaviour:
   nametext: {fileID: 1945550702}
   chtext: {fileID: 477719437}
   mainimage: {fileID: 1698066831}
+  buttonbuy: {fileID: 427670169}
 --- !u!1 &2028177437
 GameObject:
   m_ObjectHideFlags: 0

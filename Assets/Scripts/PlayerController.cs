@@ -300,6 +300,10 @@ public class PlayerController : MonoBehaviour, IDamageAble, IDamageDealer<GameOb
     }
     public float CheckStats(string stat)
     {
-        return _characterInside.statsOut["health"].Value;
+        return _characterInside.statsOut[stat].Value;
+    }
+    public void ChangeStats(string stat, int number)
+    {
+       
     }
 }

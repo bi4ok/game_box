@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Item2
   m_EditorClassIdentifier: 
   nameofProduct: 
-  cost: 0
-  attack: 0
-  health: 0
-  attackspeed: 0
-  movespeed: 0
-  artwork: {fileID: 0}
+  cost: 3
+  attack: 5
+  health: 4
+  attackspeed: 5
+  movespeed: 2
+  artwork: {fileID: 6934013284892070054, guid: 5f19f67e94a2e2f4ba57d2b338387c11, type: 3}
   isbought: 0
   ischoosen: 0

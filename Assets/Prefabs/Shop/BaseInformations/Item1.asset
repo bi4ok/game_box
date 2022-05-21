@@ -19,5 +19,5 @@ MonoBehaviour:
   attackspeed: 6
   movespeed: 4
   artwork: {fileID: 6934013284892070054, guid: 5cdfcef2d5ef97347a8d7935407f81ab, type: 3}
-  isbought: 1
+  isbought: 0
   ischoosen: 0
